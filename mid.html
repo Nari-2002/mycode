@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Marks Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .result-container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #result {
+            font-weight: bold;
+        }
+
+        /* Restricting container width */
+        .container {
+            max-width: 500px; /* Set the maximum width as needed */
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="container">
+        <div class="card p-4">
+            <form name="f1" onsubmit="fun(event)">
+                <div class="form-group">
+                    <label for="n1">Mid 1 marks:</label>
+                    <input type="number" id="n1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="n2">Mid 2 marks:</label>
+                    <input type="number" id="n2" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">OK</button>
+            </form>
+        </div>
+        
+        <div class="result-container mt-4" id="result-container" style="display: none;">
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function fun(event) {
+            event.preventDefault();
+            var m1 = parseInt(document.getElementById("n1").value);
+            var m2 = parseInt(document.getElementById("n2").value);
+            n1 = Math.max(m1, m2) * 0.8;
+            n2 = Math.min(m1, m2) * 0.2;
+            r = n1 + n2;
+            document.getElementById("result").innerHTML = "Total Marks: " + r;
+            document.getElementById("result-container").style.display = "block";
+        }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
